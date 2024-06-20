@@ -1,0 +1,156 @@
+.navbar {
+  display: flex;
+  flex-wrap: wrap;
+  font-family: "Outfit", sans-serif;
+  font-weight: 400;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 170px;
+  background-color: #8b0000;
+  color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    padding: 20px;
+    justify-content: space-between;
+  }
+
+  .nav-menu {
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+    background: #8b0000;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    right: 0;
+    display: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .nav-menu.show {
+    display: flex;
+  }
+
+  .nav-connect {
+    display: block;
+    padding: 10px 20px;
+    margin: 0;
+    order: 1; /* Ensure button appears before hamburger on mobile */
+  }
+
+  .navbar .right-section {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+}
+
+.web-logo {
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+  object-fit: cover;
+  cursor: pointer;
+  transition: transform 0.5s, box-shadow 0.5s;
+}
+
+.web-logo:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+.nav-menu {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  gap: 60px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.nav-menu li {
+  position: relative;
+}
+
+.nav-menu li p {
+  margin: 0;
+  padding: 5px 0;
+  transition: color 0.3s;
+}
+
+.nav-menu li:hover p,
+.nav-menu li.active p {
+  color: dodgerblue;
+}
+
+.nav-menu li::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  background-color: dodgerblue;
+  left: 50%;
+  bottom: -5px;
+  transition: width 0.3s, left 0.3s;
+}
+
+.nav-menu li:hover::after,
+.nav-menu li.active::after {
+  width: 100%;
+  left: 0;
+}
+
+.nav-connect {
+  padding: 15px 30px;
+  border-radius: 50px;
+  background-color: dodgerblue;
+  font-size: 15px;
+  color: #fff;
+  cursor: pointer;
+  transition: transform 0.5s, background-color 0.3s;
+  margin-left: auto; /* Push button to right corner */
+}
+
+.nav-connect:hover {
+  transform: scale(1.05);
+  background-color: deepskyblue;
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.hamburger div {
+  width: 25px;
+  height: 3px;
+  background-color: white;
+}
+
+@media (max-width: 768px) {
+  .hamburger {
+    display: flex;
+    order: 2; /* Ensure hamburger appears after button on mobile */
+  }
+
+  .nav-menu {
+    display: none;
+    flex-direction: column;
+  }
+
+  .nav-menu.show {
+    display: flex;
+  }
+
+  .navbar .right-section {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-left: auto;
+  }
+}
